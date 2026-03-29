@@ -1,1 +1,1 @@
-web: daphne -b 0.0.0.0 -p $PORT mathmatics.mathmatics.asgi:application
+web: cd mathmatics && daphne mathmatics.asgi:application --bind 0.0.0.0 --port $PORT
