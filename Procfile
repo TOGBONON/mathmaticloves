@@ -1,1 +1,1 @@
-web: daphne -b 0.0.0.0 -p $PORT mathmatics.asgi:application
+web: daphne -b 0.0.0.0 -p $PORT mathmatics.mathmatics.asgi:application
