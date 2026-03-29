@@ -40,7 +40,7 @@ def loginPage(request):
 
             if user is not None:
                 login(request, user)
-                group = request.user.groups.all()[0].name if request.user.groups.exists() else None 
+                #group = request.user.groups.all()[0].name if request.user.groups.exists() else None 
 
                 
 
@@ -48,8 +48,8 @@ def loginPage(request):
                 #request.session['use_postproject'] = datas.use_postproject
                 #request.session['use_support'] = datas.use_support
 
-                if group == 'professeur':                                    
-                    return redirect('sub-registration')                  
+                #if group == 'professeur':                                    
+                return redirect('sub-registration')                  
                 # if group =='adminstaff':
                 #     return redirect('ss:dash-employee')                        
                 # if group == 'staff':                                 
@@ -77,8 +77,8 @@ def create_teacher(request):
             #obj.userid = request.user.id  
             obj.save()      
                 
-            group = Group.objects.get(name='professeur')
-            obj.groups.add(group)
+            #group = Group.objects.get(name='professeur')
+            #obj.groups.add(group)
 
             messages.success(request, 'Données enrégistrées avec succès')
             return redirect('new-teacher')   
