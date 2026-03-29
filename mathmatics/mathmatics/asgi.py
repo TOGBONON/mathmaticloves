@@ -13,7 +13,7 @@ from django.core.asgi import get_asgi_application
 
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
-from mathmatics.src import routing
+from src import routing
 
 #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mathmatics.settings')
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mathmatics.mathmatics.settings')
