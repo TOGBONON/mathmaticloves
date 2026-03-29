@@ -1,0 +1,186 @@
+{% load static %} 
+
+<footer class="page-footer center">
+    <div class="container footer-content">
+      <div class="row">
+        <div class="">
+          <h5 class="logo">Mathmatics Love</h5>
+                </div>
+        <div class="link-wrap">
+  
+                  <ul class="link-ul">
+            <li><a class="" href="#!"><i class="mdi mdi-phone"></i> +229 67 79 78 76</a></li>
+            <li><a class="" href="#!"><i class="mdi mdi-email"></i> mathematicslove@gmail.com</a></li>
+            <li><a class="" href="#!"><i class="mdi mdi-map-marker"></i> Cotonou BENIN</a></li>
+          </ul>
+                  <ul class="social-wrap">
+            <li class="social">
+              <a class="" href="#!"><i class="mdi mdi-facebook"></i></a>
+              <a class="" href="#!"><i class="mdi mdi-twitter"></i></a>
+              <a class="" href="#!"><i class="mdi mdi-dribbble"></i></a>
+              <a class="" href="#!"><i class="mdi mdi-google-plus"></i></a>
+              <a class="" href="#!"><i class="mdi mdi-linkedin"></i></a>
+  
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+      
+    </div>
+  
+  
+    <div class="footer-copyright">
+        <div class="container">
+          &copy; Copyright <a class="" href="https://themeforest.net/user/themepassion/portfolio">Mathematics Love</a>. All rights reserved.
+        </div>
+      </div></footer>
+  
+  
+  <div class="backtotop">
+    <a class="btn-floating btn primary-bg">
+      <i class="mdi mdi-chevron-up"></i>
+    </a>
+  </div>
+  
+  
+  
+  </div><!--.content-area-->
+
+
+  <div class="footer-menu circular">
+    <ul>
+        <li >
+        <a href="{% url 'sub-listcateg' %}" >      <i class="mdi mdi-open-in-app"></i>
+        <span>Liste</span> 
+        </a>    </li>
+          <li >
+        <a href="{% url 'sub-registration' %}"  >  <i class="mdi mdi-palette-swatch"></i>
+        <span>Nouveau</span>
+        </a>    </li>
+          <li >
+        <a href="{% url 'home-page-details' %}" >      <i class="mdi mdi-home-outline"></i>
+        <span>Home</span>
+        </a>    </li>
+          <li >
+        <a href="{% url 'search-prof' %}" >      <i class="mdi mdi-camcorder"></i>
+        <span>Appel</span>
+        </a>    </li>
+          <li >
+        <a href="#" >      <i class="mdi mdi-view-dashboard"></i>
+        <span>Gallery</span>
+        </a>    </li>
+        
+    </ul>
+  </div>
+
+  
+<script src="{% static 'src/assets/js/pwa.js' %}"></script>
+
+<!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+
+<!-- CORE JS FRAMEWORK - START -->
+<script src="{% static 'src/modules/jquery/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'src/modules/materialize/materialize.js' %}"></script>
+<script src="{% static 'src/modules/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+<script src="{% static 'src/assets/js/variables.js' %}"></script>
+<!-- CORE JS FRAMEWORK - END -->
+
+
+<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+
+<!-- CORE TEMPLATE JS - START -->
+<script src="{% static 'src/modules/app/init.js' %}"></script>
+<script src="{% static 'src/modules/app/settings.js' %}"></script>
+
+<script src="{% static 'src/modules/app/scripts.js' %}"></script>
+
+<!-- END CORE TEMPLATE JS - END -->
+
+
+<script src="{% static 'src/assets/js/preloader.js' %}"></script>
+
+<script type="text/javascript">
+
+  $(".dropdown-trigger").dropdown();
+
+
+</script>
+
+<script >
+
+  const protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
+    console.log("Before socket");
+    const socket = new WebSocket(
+        protocol + window.location.host + '/ws/call/'
+    );
+    console.log("After socket", socket);
+
+    socket.onopen = function() {
+        console.log("✅ Teacher WebSocket connected");
+    };
+
+    socket.onmessage = function(e) {
+        console.log("📩 RAW MESSAGE:", e.data); 
+        const data = JSON.parse(e.data);
+        console.log("📩 PARSED:", data); 
+
+        if (data.type === "incoming_call") {
+            console.log("📞 INCOMING CALL TRIGGERED");
+            showIncomingCall(data);
+        }
+    };
+
+    socket.onclose = function() {
+        console.log("❌ WebSocket disconnected");
+    };
+
+    function showIncomingCall(data) {
+        const audio = new Audio("{% static 'src/assets/personel/med/ringtone1.mp3' %}");
+        audio.loop = true;
+        audio.play();
+
+        const popup = document.createElement('div');
+        popup.innerHTML = `
+            <div style="
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                z-index: 9999;
+                text-align: center;
+            ">
+                <h5>📞 Incoming Call</h5>
+                <p>${data.student_name}</p>
+
+                <button id="acceptCall" style="background: green; color: white;">Accept</button>
+                <button id="declineCall" style="background: red; color: white;">Decline</button>
+            </div>
+        `;
+
+        document.body.appendChild(popup);
+
+        document.getElementById("acceptCall").onclick = function() {
+            audio.pause();
+            window.location.href = `/chat/${data.call_id}/`;
+        };
+
+        document.getElementById("declineCall").onclick = function() {
+            audio.pause();
+            popup.remove();
+        };
+    }
+
+</script>
+
+
+</body>
+
+</html>
+

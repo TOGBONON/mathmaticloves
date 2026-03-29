@@ -1,0 +1,66 @@
+
+
+ /*
+@font-face {
+   font-family: 'Noto Sans JP';
+    src: local('Noto Sans JP'),
+        url("{% static 'src/assets/fonts/JapaneseStyle.woff2' %}") format('woff2'),
+        url("{% static 'src/assets/fonts/JapaneseStyle.woff' %}") format('woff');
+
+    font-weight: normal;
+    font-style: normal;
+} */
+
+input.custom-height {
+   height: 30px; /* Set the height to your desired value */
+}
+
+.custom-height2 {
+   height: 30px; 
+   width: 120px;
+}
+
+.select2-field {
+   margin-left: 10px;
+}
+
+.select2-heigh {
+   height: 65px; 
+}
+
+.flatpickr-calendar .flatpickr-months {
+    background: rgb(82, 79, 79) !important;
+}
+
+/* Month + year text */
+.flatpickr-calendar .flatpickr-current-month {
+    color: white !important;
+}
+
+/* Arrows */
+.flatpickr-calendar .flatpickr-prev-month,
+.flatpickr-calendar .flatpickr-next-month {
+    color: white !important;
+    fill: white !important;
+}
+
+/* Calendar body background */
+.flatpickr-calendar {
+    background: #97c0f7 !important;
+}
+
+/* Days grid background */
+.flatpickr-days {
+    background: #97c0f7 !important;
+}
+
+.notecolor {
+   color: blue;
+}
+
+.user-link {
+    display: inline-flex!important;
+    align-items: center!important;
+    gap: 5px!important; /* space between text and icon */
+    white-space: nowrap!important;
+}

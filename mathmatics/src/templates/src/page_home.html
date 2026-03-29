@@ -1,0 +1,193 @@
+{% extends 'src/header.html' %}
+{% load static %}
+{% block content_header %}
+
+ <!-- include static file for flatpickr -->
+
+<div class="menu-close"><i class="mdi mdi-close"></i></div>
+
+<div class="content-area">  
+
+
+  <div class="carousel carousel-fullscreen carousel-slider home_carousel ">
+
+      <a class="carousel-item" href="#carousel-slide-0!">
+      <div class="bg" style="background-image: url('{% static "src/assets/images/imclass10.png" %}')"></div>
+      <div class="item-content center-align white-text">
+
+                  <div class="spacer-xlarge"></div>
+          <div class="spacer-xlarge"></div>
+          <h3>Allo prof, Appelez directement un professeur pour posez vos preocupations</h3>
+          <h5 class="light white-text">Recherche de professeur disponible</h5>
+        
+      </div>
+      
+      </a>
+        <a class="carousel-item" href="#carousel-slide-1!">
+      <div class="bg" style="background-image: url('{% static "src/assets/images/imclass8.png" %}')"></div>
+      <div class="item-content left-align white-text">
+
+                  <div class="spacer-xlarge"></div>
+          <div class="spacer-xlarge"></div>
+          <h3>En cas de difficultes pour resoudre un exercice, en un click recherchez un professeur disponible</h3>
+          <h5 class="light white-text">En un click</h5>
+        
+      </div>
+      
+      </a>
+        <a class="carousel-item" href="#carousel-slide-2!">
+      <div class="bg" style="background-image: url('{% static "src/assets/images/imclass9.png" %}')"></div>
+      <div class="item-content center-align white-text">
+
+                  <div class="spacer-xlarge"></div>
+          <div class="spacer-xlarge"></div>
+          <h3>Numerous inbuilt UI elements and components</h3>
+          <h5 class="light white-text">Facile d'utilisation</h5>
+        
+      </div>
+      
+      </a>
+        <a class="carousel-item" href="#carousel-slide-3!">
+      <div class="bg" style="background-image: url('{% static "src/assets/images/imclass7.png" %}')"></div>
+      <div class="item-content right-align white-text">
+
+                  <div class="spacer-xlarge"></div>
+          <div class="spacer-xlarge"></div>
+          <h3>Orientation et choix de filiere apres le BAC</h3>
+          <h5 class="light white-text">orientation.</h5>
+        
+      </div>
+      
+      </a>
+    
+  </div>
+
+
+
+<div class="container home-iconbox">
+  <div class="section">
+
+  
+
+  <div class="spacer"></div>
+  <div class="row ">
+                <div class="col s12 pad-0">
+  
+<!--   Icon Section   -->
+<div class="row">
+    <div class="col s6 m6 l3">
+    <div class="icon-block block z-depth-1">
+      <div class="icon-area center primary-text"><i class="mdi mdi-speedometer"></i></div>
+      <h6 class="text-area center">Recherche de professeur</h6>
+      <p class="text-area center">It is designed to be super fast and light in weight. It speeds your development and helps smooth user interation.</p>
+    </div>
+  </div>
+
+    <div class="col s6 m6 l3">
+    <div class="icon-block block z-depth-1">
+      <div class="icon-area center primary-text"><i class="mdi mdi-spotlight"></i></div>
+      <h6 class="text-area center">Echanger avec un professeur</h6>
+      <p class="text-area center">By utilizing elements and principles of Material Design, It is designed with unique set of features.</p>
+    </div>
+  </div>
+
+    <div class="col s6 m6 l3">
+    <div class="icon-block block z-depth-1">
+      <div class="icon-area center primary-text"><i class="mdi mdi-thumb-up-outline"></i></div>
+      <h6 class="text-area center">Orientation</h6>
+      <p class="text-area center">It follows black box level coding standard. All the code is well formatted, commented and ready to use.</p>
+    </div>
+  </div>
+
+    <div class="col s6 m6 l3">
+    <div class="icon-block block z-depth-1">
+      <div class="icon-area center primary-text"><i class="mdi mdi-lan"></i></div>
+      <h6 class="text-area center">Suivi des notes de son enfant</h6>
+      <p class="text-area center">It can be customized and used for any niche. The vast possibilities of this template makes it multi purpose.</p>
+    </div>
+  </div>
+
+  </div>
+
+
+  </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="row primary-bg ">
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <h5 class="center bot-0 sec-tit white-text pad-15">allo prof</h5>
+  <p class="center-align white-text pad-30">Alix is a multi purpose PWA Mobile UI APP with tons of features and functionalities. Try it now.</p>
+  <div class="center">
+
+  
+      <!-- <a class="btn-large waves-effect theme-bg-btn" target="_blank" href="https://themeforest.net/user/themepassion/portfolio">Buy Now</a> -->
+      
+  
+  </div>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+</div>
+  
+
+
+  
+  
+
+
+{% include "src/footer_mobile.html" %}  
+<script src="{% static 'src/assets/js/pwa.js' %}"></script>
+
+<!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+
+<!-- CORE JS FRAMEWORK - START -->
+<script src="{% static 'src/modules/jquery/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'src/modules/materialize/materialize.js' %}"></script>
+<script src="{% static 'src/modules/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+<script src="{% static 'src/assets/js/variables.js' %}"></script>
+<!-- CORE JS FRAMEWORK - END -->
+
+<script>
+
+  $(document).ready(function(){
+      
+      $(".carousel-fullscreen.carousel-slider").carousel({
+        fullWidth: true,
+        indicators: true
+      });
+      setTimeout(autoplay, 3500);
+      function autoplay() {
+          $(".carousel").carousel("next");
+          setTimeout(autoplay, 3500);
+      }
+         $(".slider3").slider({
+                indicators: false,
+                height: 200,
+        });
+
+  }); 
+
+</script>
+
+</script><script src="{% static 'src/assets/js/common.js' %}"></script><!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+
+<!-- CORE TEMPLATE JS - START -->
+<script src="{% static 'src/modules/app/init.js' %}"></script>
+<script src="{% static 'src/modules/app/settings.js' %}"></script>
+
+<script src="{% static 'src/modules/app/scripts.js' %}"></script>
+
+<!-- END CORE TEMPLATE JS - END -->
+
+
+<script src="{% static 'src/assets/js/preloader.js' %}"></script>
+
+        
+{% endblock %}
+
+

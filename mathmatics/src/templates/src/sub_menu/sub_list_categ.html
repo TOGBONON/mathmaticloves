@@ -1,0 +1,156 @@
+{% extends 'src/header.html' %}
+{% load static %}
+{% block content_header %}
+
+
+<div class="menu-close"><i class="mdi mdi-close"></i></div>
+
+<div class="content-area">  
+  <div class="container  is-pagetitle">
+    <div class="section">
+         <h5 class="pagetitle">Liste detaile</h5>
+    </div>
+    </div>
+
+    <div class="container full subpage ">
+        <div class="section">
+
+
+            
+    <!-- <div class="container">
+  <div class="section"> -->
+
+    
+    <ul class="subpages collection z-depth-1">
+
+
+        
+
+    <li class="collection-item subtit"><div class="row ">
+                <div class="col s12 pad-0"><h5 class="bot-20 sec-tit  ">Liste</h5></div>
+        </div>
+    </li>
+    <li class="collection-item">
+        <a href="{% url 'list-com' %}" class="waves-effect"><i class="mdi mdi-toolbox "></i><span>Liste des communes</span><i class="arrow mdi mdi-chevron-right"></i></a>
+    </li>
+    <li class="collection-item"> 
+        <a href="{% url 'list-studylev' %}" class="waves-effect"><i class="mdi mdi-office-building "></i><span>Liste Niveau d'étude</span><i class="arrow mdi mdi-chevron-right"></i></a>
+    </li>
+    <li class="collection-item">
+        <a href="{% url 'list-speciality' %}" class="waves-effect"><i class="mdi mdi-credit-card "></i><span>Liste Spécialité</span><i class="arrow mdi mdi-chevron-right"></i></a>
+    </li>
+    
+    <!-- <li class="collection-item"> 
+        <a href="{% url 'matiere' %}" class="waves-effect"><i class="mdi mdi-dna "></i><span>Matière</span><i class="arrow mdi mdi-chevron-right"></i></a>
+    </li> -->
+    
+    </ul>
+
+
+
+
+    
+    <!-- <ul class="subpages collection z-depth-1">
+
+
+        
+
+    <li class="collection-item subtit"><div class="row ">
+                <div class="col s12 pad-0"><h5 class="bot-20 sec-tit  ">Actions</h5></div>
+                </div>
+    </li>
+        <li class="collection-item">
+            <a href="ui-app-blog-subscribe.html" class="waves-effect"><i class="mdi mdi-account-star "></i><span>Subscribe</span><i class="arrow mdi mdi-chevron-right"></i></a>
+      </li>
+      <li class="collection-item">
+                                      <a href="ui-pages-profile-card.html" class="waves-effect"><i class="mdi mdi-account-box-outline "></i><span>User Profile Card</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-app-news-share.html" class="waves-effect"><i class="mdi mdi-share-variant "></i><span>Share</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li>
+    </ul> -->
+
+
+
+    
+    <!-- <ul class="subpages collection z-depth-1">
+
+
+        
+
+    <li class="collection-item subtit"><div class="row ">
+                <div class="col s12 pad-0"><h5 class="bot-20 sec-tit  ">Site Access</h5></div>
+    </div>
+    </li>
+      <li class="collection-item">
+                                      <a href="ui-pages-login.html" class="waves-effect"><i class="mdi mdi-login "></i><span>Login</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-register.html" class="waves-effect"><i class="mdi mdi-account-outline "></i><span>Registration</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-forgotpassword.html" class="waves-effect"><i class="mdi mdi-lock-reset "></i><span>Forgot Password</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-resetpassword.html" class="waves-effect"><i class="mdi mdi-textbox-password "></i><span>Reset Password</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-welcome.html" class="waves-effect"><i class="mdi mdi-home-modern "></i><span>Welcome Screen</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-walkthrough.html" class="waves-effect"><i class="mdi mdi-view-array "></i><span>Walkthrough</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-lockscreen.html" class="waves-effect"><i class="mdi mdi-lock-outline "></i><span>App Lock Screen</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-offline.html" class="waves-effect"><i class="mdi mdi-network-strength-off-outline "></i><span>Offline page</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li>
+    </ul> -->
+
+
+  <!-- </div>
+
+</div> -->
+        
+<!-- <div class="container">
+  <div class="section"> -->
+
+    
+    <!-- <ul class="subpages collection z-depth-1">
+
+
+        
+
+    <li class="collection-item subtit"><div class="row ">
+                <div class="col s12 pad-0"><h5 class="bot-20 sec-tit  ">Error Pages</h5></div>
+    </div>
+    </li>
+      <li class="collection-item">
+                                      <a href="ui-pages-404.html" class="waves-effect"><i class="mdi mdi-cellphone-off "></i><span>404 page</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-500.html" class="waves-effect"><i class="mdi mdi-ethernet-cable-off "></i><span>500 page</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-403.html" class="waves-effect"><i class="mdi mdi-account-off "></i><span>403 page</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-405.html" class="waves-effect"><i class="mdi mdi-eye-off-outline "></i><span>405 page</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-408.html" class="waves-effect"><i class="mdi mdi-alarm-off "></i><span>408 page</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li><li class="collection-item">
+                                      <a href="ui-pages-503.html" class="waves-effect"><i class="mdi mdi-cloud-off-outline "></i><span>503 page</span><i class="arrow mdi mdi-chevron-right"></i></a>
+                                  </li>
+    </ul> -->
+
+
+  <!-- </div>
+
+</div> -->
+    
+        </div>
+        </div>
+
+  
+  
+
+
+
+
+
+{% include "src/footer_mobile.html" %}  
+
+        
+{% endblock %}
+
+

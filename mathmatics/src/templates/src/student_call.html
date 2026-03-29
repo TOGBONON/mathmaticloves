@@ -1,0 +1,252 @@
+{% extends 'src/header.html' %}
+{% load static %}
+{% block content_header %}
+
+ <!-- include static file for flatpickr -->
+ {{ form.media.css }}
+ {{ form.media.js }}
+<div class="menu-close"><i class="mdi mdi-close"></i></div>
+
+<div class="content-area">  
+  <div class="container  is-pagetitle">
+    <div class="section">
+         <h5 class="pagetitle">Renseigner vos informations et passer l'appel</h5>
+    </div>
+  </div>
+  
+  
+
+  <div class="container">
+    <div class="section">
+      
+      <form action="" method="post" class="needs-validation" autocomplete="on" id="mainform" enctype="multipart/form-data" >
+         <input type="hidden" name="idhide" id="idhide" value="{{prof_id}}" >
+          {% csrf_token %}
+
+        <div class="row ">
+          <!-- <div class="col s12 pad-0"><h5 class="bot-20 sec-tit  ">Renseigner vos informations et passer l'appel</h5> -->
+            <div class="pad-15"> 
+              <p class="text-muted font-14">
+                  {% if messages %}
+                  <div id="message-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                      <span class="alert-text"></span>
+                          {% for message in messages %}
+                              <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</span>
+                          {% endfor %}
+                      </span>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+                  {% endif %}
+              </p> 
+              <!-- Display all form error on top --> 
+              {% if form.errors %}
+              <div class="red-text">
+                  {{ form.errors }}
+              </div>
+              {% endif %}
+               
+                <div class="row">
+                  <div class="input-field col s12">
+                    {{ form.student_fullname }}
+                    <label for="{{ form.student_fullname.id_for_label }}">Nom et Prénom</label>
+                  </div>
+                </div>
+        
+                <div class="row">
+                  <div class="input-field col s12">
+                    <!-- <input id="last_name" type="text" class="validate"> -->
+                      {{ form.student_tel }}
+                    <label for="{{ form.student_tel.id_for_label }}">Téléphone</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <!-- <input id="last_name" type="text" class="validate"> -->
+                      {{ form.student_email }}
+                      {% for error in form.student_email.errors %}
+                          <span class="red-text">{{ error }}</span>
+                      {% endfor %}
+                    <label for="{{ form.student_email.id_for_label }}">Email</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <label > Date de naissance </label>
+                     <div  style="margin-top: 20px; margin-left: -20px;">                      
+                        {{ form.student_birthday }}
+                        {% for error in form.student_birthday.errors %}
+                            <span class="red-text">{{ error }}</span>
+                        {% endfor %}
+                      </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                     <label >Sexe</label><br>
+                     {% for radio in form.student_gender %}
+                        <p style="margin-left: 10px;">
+                          <label>
+                            {{ radio.tag }}
+                            <span>{{ radio.choice_label }}</span>
+                          </label>
+                        </p>
+                      {% endfor %}
+                   
+                  </div>
+                </div>
+
+
+                 <div class="row">                  
+                  <div class="input-field select2-heigh col s12" >
+                     <div  >
+                        <label class="select2-field">Matiere</label>                   
+                        {{ form.matiere }}
+                     </div>
+                  </div>
+                </div>
+
+                <div class="row">                  
+                  <div class="input-field select2-heigh col s12" >
+                     <div  >
+                        <label class="select2-field">Commune</label>                   
+                        {{ form.student_commune }}
+                     </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    {{ form.student_etablissement }}
+                    <label for="{{ form.student_etablissement.id_for_label }}">Etablissement</label>
+                  </div>
+                </div>
+
+                <div class="row ">
+                        <button type="submit" class="btn waves-effect waves-light btn-large bg-primary">Appeler</button>
+                </div>   
+
+        
+                
+        
+                <!-- <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+                </div>                
+        
+                <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea-normal" class="materialize-textarea validate"></textarea>
+                  <label for="textarea-normal">Text area</label>
+                </div>
+                </div> -->
+
+
+            </div>
+    
+          </div>
+        </div>
+      </form>
+      
+      
+    </div>
+  </div>
+  
+  
+
+
+{% include "src/footer_mobile.html" %}  
+<script src="{% static 'src/assets/personel/select2/select2.full.min.js' %}"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/l10n/ja.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/yearSelect/yearSelect.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/yearSelect/style.css"> -->
+
+<script>
+
+    $(document).ready(function(){
+        
+        $('#id_matiere').select2({ width: '100%' });
+        $('#id_student_commune').select2({ width: '100%' });
+    });
+
+
+
+    // // ✅ Create WebSocket connection
+    // const socket = new WebSocket(
+    //     'ws://' + window.location.host + '/ws/call/'
+    // );
+
+    // socket.onopen = function() {
+    //     console.log("WebSocket connected");
+    // };
+
+    // socket.onmessage = function(e) {
+    //     const data = JSON.parse(e.data);
+
+    //     if (data.type === "incoming_call") {
+    //         // 🔔 Popup
+    //         showIncomingCall(data);
+    //     }
+    // };
+
+    // socket.onclose = function() {
+    //     console.log("WebSocket disconnected");
+    // };
+
+    // // 🔥 Better UI than alert()
+    // function showIncomingCall(data) {
+    //     // Play sound
+    //     const audio = new Audio("{% static 'src/assets/personel/med/ringtone1.mp3' %}");
+    //     audio.loop = true;
+    //     audio.play();
+
+    //     // Custom popup
+    //     const popup = document.createElement('div');
+    //     popup.innerHTML = `
+    //         <div style="
+    //             position: fixed;
+    //             top: 20px;
+    //             left: 50%;
+    //             transform: translateX(-50%);
+    //             background: white;
+    //             padding: 20px;
+    //             border-radius: 10px;
+    //             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    //             z-index: 9999;
+    //             text-align: center;
+    //         ">
+    //             <h5>📞 Incoming Call</h5>
+    //             <p>${data.student_name}</p>
+
+    //             <button id="acceptCall" style="background: green; color: white; margin: 5px;">Accept</button>
+    //             <button id="declineCall" style="background: red; color: white; margin: 5px;">Decline</button>
+    //         </div>
+    //     `;
+
+    //     document.body.appendChild(popup);
+
+    //     document.getElementById("acceptCall").onclick = function() {
+    //         audio.pause();
+    //         window.location.href = `/chat/${data.call_id}/`; // redirect to chat
+    //     };
+
+    //     document.getElementById("declineCall").onclick = function() {
+    //         audio.pause();
+    //         popup.remove();
+    //     };
+    // }
+
+   
+
+</script>
+
+        
+{% endblock %}
+
+

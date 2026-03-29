@@ -1,0 +1,708 @@
+
+
+ /*
+@font-face { 
+   font-family: 'Noto Sans JP'; 
+    src: local('Noto Sans JP'),
+        url("{% static 'src/assets/fonts/JapaneseStyle.woff2' %}") format('woff2'),
+        url("{% static 'src/assets/fonts/JapaneseStyle.woff' %}") format('woff');
+        
+    font-weight: normal;
+    font-style: normal;
+} */
+
+.throw {
+    width: 400px;
+    text-align: center;
+}
+ .centdata {
+
+   text-align: center;
+
+}
+
+th {
+   width: fit-content;
+   white-space: nowrap;
+}
+
+/* tr:hover {
+   background-color: #ffffff0f;
+   transform: scale(1.005);
+   box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0,0,0,0.2);
+} */
+
+.arrow-button {
+   width: 40px;   /* Adjust the button width */
+   height: 40px;  /* Adjust the button height */
+   background-color: #ffffff7e;
+   border: 1px solid rgba(0, 0, 0, 0); /* Optional border */
+   cursor: pointer;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 3px; /* Optional rounded corners */
+   transition: background-color 0.3s, border-color 0.3s;
+   margin-left: 5px; /* Spacing between the title and button */
+   margin-right: 2px;
+}
+
+.arrow-button:hover {
+   background-color: #f0f0f000;
+   border-color: rgba(255, 255, 255, 0.205);
+}
+
+.down-arrow {
+   width: 10px;
+   height: 10px;
+   border-left: 4px solid transparent;
+   border-right: 4px solid transparent;
+   border-top: 10px solid rgb(255, 255, 255);
+   
+}
+
+  /* Modal styles */
+.modal2 {
+   display: none; /* Hidden by default */
+   position: fixed;
+   z-index: 1;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content2 {
+   background-color: white;
+   margin: 15% auto;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 30%;
+   text-align: center;
+}
+
+.close-btn2 {
+   color: #aaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+   color: black;
+}
+
+input[type="text"] {
+   width: 80%;
+   padding: 5px;
+}
+
+/* Container styles */
+.container2 {
+   width: 100%;
+   padding: 20px;
+   background-color: #f8f8f8;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   font-family: Arial, sans-serif;
+   align-content: center;
+}
+
+/* Sorting section */
+.sort-section {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px;
+}
+
+.sort-option {
+   display: flex;
+   align-items: center;
+   margin-bottom: 5px;
+}
+
+/* Increase the size of the sorting icons */
+.sort-option span:first-child {
+   font-size: 20px; /* Increase the font size of the icons */
+   margin-right: 5px; /* Adjust spacing between icon and text */
+}
+
+/* Adjust text size if needed */
+.sort-option span:last-child {
+   font-size: 16px; /* Text size for '昇順' and '降順' */
+}
+
+/* Separator line */
+.separator {
+   border: none;
+   border-top: 2px solid #ccc;
+   margin: 20px 0;
+}
+
+/* Filter section */
+.filter-section {
+   margin-bottom: 20px;
+}
+
+.filter-section label {
+   display: block;
+   margin-bottom: 5px;
+   font-size: 14px;
+}
+
+.filter-input {
+   width: 100%;
+   padding: 8px;
+   border: 1px solid #ccc;
+   border-radius: 3px;
+}
+
+/* Match type section */
+.match-type {
+   margin-top: 10px;
+   margin-bottom: 20px;
+}
+
+.match-type label {
+   display: inline-flex;
+   align-items: center;
+   margin-right: 20px; /* Adds spacing between radio buttons */
+}
+
+.match-type input[type="radio"] {
+   /* Hide the default radio button */
+   appearance: none;
+   width: 16px;
+   height: 16px;
+   border: 1px solid #000;
+   border-radius: 50%;
+   margin-right: 8px; /* Space between radio and label */
+   position: relative;
+   outline: none;
+   cursor: pointer;
+}
+
+.match-type input[type="radio"]:checked {
+   background-color: black; /* Fully black when checked */
+   border-color: black; /* Make the border black too */
+
+
+/* .match-type input[type="radio"]:checked::after {
+   content: '';
+   display: block;
+   width: 8px;
+   height: 8px;
+   background-color: white;
+   border-radius: 50%;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+} */
+}
+
+.step-row {
+   width: 100%;
+   height: 38px;
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+   box-shadow: 0 -1px 5px -1px #000;
+   position: relative;
+}
+
+.step-row2 {
+   width: 100%;
+   height: 38px;
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+   position: relative;
+}
+.step-col {
+   width: 130px;
+   text-align: center;
+   color: #333;
+   position: relative;
+   height: 100%;  /* Ensure the step column fills the height */
+   display: flex;
+   flex-direction: column;
+   justify-content: center;  /* Vertically center the content */
+}
+.progress-bar {
+   height: 100%;  /* Ensure the progress bar fills the height */
+   width: 100%;
+   background: linear-gradient(to right, #e6e6e6, #f0f7fa);
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 1;
+}
+
+.progress-bar2 {
+   background-color: #edf5f8; 
+}
+
+.triangle {
+   content: '';
+   height: 0;
+   width: 0;
+   border-top: 19px solid transparent;
+   border-bottom: 19px solid transparent;
+   position: absolute;
+   right: -19px;
+   top: 50%;  /* Vertically center the triangle */
+   transform: translateY(-50%);  /* Adjust to vertically center */
+   border-left: 20px solid #edf5f8;
+   z-index: 2;
+}
+.step-col small {
+   position: relative;
+   z-index: 3;
+   /* background: white;   Optional: Adds a background to the text to improve visibility */
+   padding: 0 5px;  /* Optional: Adds padding around the text for better appearance */
+}
+
+.phase-active {
+   background-color: lightblue; /* Apply light blue background color to Phase 2 */
+}
+
+.no-gradient {
+   background: none !important;
+}
+
+.no-border {
+  
+   border-left: 20px solid lightblue !important;
+}
+
+.with-border {
+   border-left: 20px solid #edf5f8 !important;
+}
+/* Action buttons */
+.action-buttons {
+   display: flex;
+   justify-content: center; /* Center the buttons horizontally */
+   gap: 15px; /* Space between buttons */
+}
+
+.btn2 {
+   padding: 10px 50px; /* Increased button size */
+   font-size: 16px; /* Increased text size */
+   border-radius: 5px; /* Slightly larger border radius */
+   border: none;
+   /* cursor: pointer; */
+}
+
+.btn-setting {
+   background-color: #007bff;
+   color: white;
+}
+
+.btn-setting2 {
+   background-color: white;
+   border: 1px solid #ccc;
+   white-space: nowrap;
+}
+
+.highlight {
+   background-color: yellow; /* Highlight color for matching rows */
+}
+
+/* Floating Support Button */
+.support-button {
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   width: 60px;
+   height: 60px;
+   background-color: #28a745;
+   color: white;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+   transition: transform 0.3s ease;
+   text-decoration: none;
+}
+
+.support-button:hover {
+   transform: scale(1.1);
+}
+
+.support-button img {
+   width: 50%;
+   height: 50%;
+}
+
+/* Chat Window */
+.support-button {
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   width: 60px;
+   height: 60px;
+   background-color: #28a745;
+   color: white;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+   transition: transform 0.3s ease;
+   text-decoration: none;
+}
+
+.support-button:hover {
+   transform: scale(1.1);
+}
+
+.support-button img {
+   width: 50px;
+   height: 50px;
+}
+
+/* Chat Window */
+.chat-window {
+   display: none; /* Hidden by default */
+   position: fixed;
+   bottom: 90px;
+   right: 20px;
+   width: 300px;
+   max-height: 400px;
+   background-color: white;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+}
+
+.chat-header {
+   padding: 10px;
+   background-color: #28a745;
+   color: white;
+   font-weight: bold;
+   text-align: center;
+   position: relative;
+}
+
+.close-chat {
+   position: absolute;
+   right: 10px;
+   cursor: pointer;
+}
+
+.chat-messages {
+   flex: 1;
+   padding: 10px;
+   overflow-y: auto;
+   border-top: 1px solid #ddd;
+}
+
+.chat-input {
+   display: flex;
+   border-top: 1px solid #ddd;
+}
+
+.chat-input input[type="text"] {
+   flex: 1;
+   padding: 10px;
+   border: none;
+   outline: none;
+}
+
+.chat-input button {
+   padding: 10px;
+   background-color: #28a745;
+   color: white;
+   border: none;
+   cursor: pointer;
+}
+.btn {
+
+   gap: 15px;
+}
+
+.header-divider {
+   border-left: 2px solid white; /* White vertical divider with increased thickness */
+   margin: 0 8px;
+   height: 30px; /* Adjust height as needed */
+   display: inline-block;
+   vertical-align: left;
+}
+ table {
+   border-collapse: collapse;
+   overflow-x: auto;
+   width: 100%; /* Allows the table to resize with the browser */
+   max-width: 100%;
+ }
+ .wrap-column {
+   max-width: 100px; /* Set maximum width for wrapping */
+   word-wrap: break-word;
+   white-space: normal; /* Allows text to wrap */
+ }
+
+ .table-container {
+   overflow-x: auto;
+   width: 100%;
+   white-space: nowrap;
+ }
+
+ /* Style for dropdown menu */
+/* .dropdown-menu {
+   display: none;
+   position: absolute;
+   background-color: #0086cec0;
+   min-width: 150px;
+  
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+   padding: 8px;
+}
+.dropdown-menu a, .dropdown-menu label {
+   display: block;
+   padding: 0px 0;
+   color: rgb(255, 255, 255);
+   text-decoration: none;
+   cursor: pointer;
+}
+.dropdown-menu a:hover { background-color: #ffffff;
+
+   color: #000000;
+}
+
+.header-dropdown {
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+} */
+
+/* Submenu style */
+/* .submenu {
+   display: none;
+   position: absolute;
+   top: 0px;
+   left: 150px;
+   background-color: #0095e67c;
+   min-width: 230px;
+   padding: 8px;
+   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+   animation: slideRight 0.3s forwards;
+} */
+
+/* .submenu2 {
+   display: none;
+   position: absolute;
+   top: 0px;
+   right: 150px;
+   background-color: #f9f9f9c2;
+   min-width: 230px;
+   padding: 8px;
+   box-shadow: 0px 8px 16px rgba(167, 24, 5, 0.2);
+   animation: slideRight 0.3s forwards;
+} */
+
+/* Slide right animation */
+@keyframes slideRight {
+   from { opacity: 0; transform: translateX(-10px); }
+   to { opacity: 1; transform: translateX(0); }
+}
+
+/* Show submenu on hover */
+/* .dropdown-menu .action-display:hover .submenu {
+   display: block;
+   background-color: #000000bb;
+
+}
+
+.dropdown-menu .action-display:hover .submenu2 {
+   display: block;
+   background-color: #000000bb;
+
+}
+
+/* Hide dropdown icon by default */
+/* .header-dropdown .fas.fa-chevron-down {
+   display: none;
+   margin-left: 5px;
+} */
+
+/* Show dropdown icon on hover */
+/* th:hover .fas.fa-chevron-down {
+   display: inline;
+} */
+
+/* .sub-category {
+   padding: 4px 0;
+   font-size: 16px;
+} */
+
+/* .sub-writingtext {
+   padding: 4px 0;
+   font-size: 32px;
+} */ */
+
+/* Style for the shaded section */
+.shaded-section {
+   background-color: #f0f0f0;  /* Light gray background */
+   padding: 10px 20px;
+   margin-bottom: 20px;
+   border-radius: 5px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+/* Title alignment */
+.title {
+   margin: 0;
+   font-size: 24px;
+}
+
+/* Controls alignment */
+.controls {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.date-picker {
+   padding: 5px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+}
+
+/* .display-button {
+   background-color: #007bff;
+   color: #fff;
+   border: none;
+   padding: 5px 10px;
+   border-radius: 4px;
+   cursor: pointer;
+} */
+
+/* .display-button:hover {
+   background-color: #0056b3;
+} */
+
+      /* Container styling */
+      .container {
+         width: 80%;
+         margin: auto;
+         margin-top: 20px;
+         background-color: #ffffff; /* Light gray background */
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         padding: 20px;
+         border-radius: 5px;
+     }
+
+     /* Header styling */
+     .header {
+         font-size: 20px;
+         font-weight: bold;
+         padding: 10px;
+         color: #333;
+         border-bottom: 2px solid #ccc;
+         background-color: #ffffff; /* Shaded section */
+     }
+
+     /* Filter section styling */
+     .filter-wrapper {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         margin: 20px 0;
+         padding: 0 10px;
+     }
+
+     /* Shaded section only to the label */
+     .filter-label-container {
+         background-color: #e6e6e6; /* Shaded section */
+         padding: 10px;
+         border-radius: 5px 0 0 5px;
+     }
+
+     .filter-label-container label {
+         font-weight: bold;
+     }
+
+     /* Dropdown and Button Container */
+     .filter-controls {
+         display: flex;
+         align-items: center;
+         flex: 1; /* Makes this section take up remaining space */
+         padding-left: 10px;
+     }
+
+     .filter select {
+         padding: 5px;
+         font-size: 16px;
+         width: 60%; /* Dropdown width adjustment */
+         margin-right: 10px;
+     }
+     
+     .filter button {
+         padding: 8px 16px;
+         font-size: 16px;
+         background-color: #0078d7; /* Blue color for button */
+         color: #fff;
+         border: none;
+         border-radius: 3px;
+         cursor: pointer;
+     }
+     
+     .filter button:hover {
+         background-color: #005fa3; /* Darker blue on hover */
+     }
+
+     /* Table container and alignment */
+     /* .table-container {
+         margin-top: 400px;
+         display: flex;
+         justify-content: flex-start; 
+     } */
+
+     /* Table styling */
+     .table {
+         border-collapse: collapse;
+     }
+
+     /* Table Header (th) styling */
+     .th {
+         background-color: #0078d7;
+         color: #fff;
+         padding: 10px;
+         text-align: center;
+         border: 1px solid #ccc;
+     }
+
+     /* Table Data (td) styling */
+     .td {
+         padding: 10px;
+         text-align: center;
+         border: 1px solid #ccc;
+     }
+
+     /* Special styling for alternating rows */
+     .row-even {
+         background-color: #f2f2f2;
+     }
+
+     /* Row header styling */
+     .row-header {
+         font-weight: bold;
+         color: #0078d7;
+         text-align: left;
+         padding-left: 20px;
+     }
+
+     /* Right alignment for sub-row data */
+     .sub-row .td {
+         text-align: right;
+     }
